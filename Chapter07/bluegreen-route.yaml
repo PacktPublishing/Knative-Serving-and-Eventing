@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Route
+metadata:
+  name: bluegreen-route
+  namespace: chapter07-ns
+spec:
+  traffic:
+    - revisionName: helloworld-00001
+      percent: 100 # All traffic goes to this blue revision
+    - revisionName: helloworld-00002
+      percent: 0 # All traffic goes to this green revision
+      tag: v2

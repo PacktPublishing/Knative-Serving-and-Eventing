@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: helloworld
+  namespace: chapter07-ns
+spec:
+  template:
+    spec:
+      containers:
+      - image: docker.io/pradeepl/helloworld
+        env:
+          - name: TARGET
+            value: "green"
